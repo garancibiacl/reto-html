@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="author" content="Gustavo Arancibia" />
+    <title>Reto-HTML</title>
+
+    <style>
+      html,
+      body {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        font-family: MyriadPro-Regular, MyriadVariableConcept-Roman;
+      }
+
+      /*FUENTES LOCALES*/
+      @font-face {
+        font-family: "MyriadPro-Regular";
+        src: local("MyriadPro-Regular") url(/Fonts/MyriadPro-Regular.otf)
+            format("otf"),
+          url(/Fonts/MyriadVariableConcept-Roman.otf) format("otf");
+        font-weight: normal;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      * {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt !important;
+        mso-table-rspace: 0pt !important;
+      }
+
+      table {
+        border-spacing: 0 !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        margin: 0 auto !important;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /*HEADING SECTION*/
+      .heading-section h2 {
+        color: #000000;
+        font-size: 28px;
+        margin-top: 0;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+      .heading-section .subheading {
+        margin-bottom: 20px !important;
+        display: inline-block;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(0, 0, 0, 0.4);
+        position: relative;
+      }
+      .heading-section .subheading::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #93278f;
+        margin: 0 auto;
+      }
+      .bg_white {
+        background: #ffffff;
+      }
+
+
+
+      /*HERO*/
+      .hero {
+        position: relative;
+      }
+      .hero img {
+        background-repeat: round !important;
+      }
+      .hero .text {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .hero .text h2 {
+        color: #ffffff;
+        font-size: 40px;
+        margin-bottom: 0;
+      }
+      h1 span {
+        color: #93278f;
+      }
+
+      /*BUTTON*/
+      .btn {
+        padding: 10px 15px;
+      }
+      .btn.btn-primary {
+        border-radius: 30px;
+        background: #93278f;
+        color: #ffffff;
+      }
+
+      .email-section {
+        padding: 20px;
+      }
+
+      .text-services {
+        padding: 10px 10px 0;
+        text-align: center;
+      }
+      .text-services h3 {
+        font-size: 20px;
+      }
+
+      /*CARD*/
+
+      .card {
+        display: table-cell;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        background-color: #fff;
+        width: 20%;
+        height: auto;
+        margin: auto;
+        margin: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      /*BLOG*/
+      .text-blog .meta {
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-bottom: 0;
+      }
+
+      /*REDES SOCIALES*/
+      ul.social {
+        padding: 0;
+      }
+      ul.social li {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 10px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      /*TESTIMONY*/
+.text-testimony .name{
+	margin: 0;
+}
+.text-testimony .position{
+	color: rgba(0,0,0,.3);
+
+}
+
+      /*FOOTER*/
+
+      .footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .footer .heading {
+        color: #000;
+        font-size: 20px;
+        padding: 10px;
+      }
+      .footer ul {
+        margin: 0;
+        padding: 0;
+      }
+      .footer ul li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+      .footer ul li a {
+        color: rgba(0, 0, 0, 1);
+      }
+
+      .bg_footer {
+        background: #93278f;
+      }
+
+      /* media queries para cada tamaño de ventana gráfica adicional que desee corregir */
+
+      /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+      @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        u ~ div .email-container {
+          min-width: 320px !important;
+        }
+      }
+      /* iPhone 6, 6S, 7, 8, and X */
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        u ~ div .email-container {
+          min-width: 375px !important;
+        }
+      }
+      /* iPhone 6+, 7+, and 8+ */
+      @media only screen and (min-device-width: 414px) {
+        u ~ div .email-container {
+          min-width: 414px !important;
+        }
+      }
+      @media screen and (max-width: 650px) {
+        .card {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        .icon {
+          text-align: left;
+        }
+
+        .text-services {
+          padding-left: 0;
+          padding-right: 20px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body
+    width="100%"
+    style="margin: 0; padding: 0 !important; background-color: #f1f1f1"
+  >
+    <div style="max-width: 650px; margin: 0 auto" class="email-container">
+      <tr>
+        <td class="bg_white logo">
+          <h3 style="text-align: center">Customer Intelligence</h3>
+        </td>
+      </tr>
+
+      <!-- Star Seccion  Hero -->
+      <tr>
+        <table
+          align="center"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+        >
+          <tr>
+            <td
+              valign="middle"
+              class="hero"
+              style="
+                background-image: url(images/hero.png);
+                background-size: cover;
+                background-position: center;
+                height: 400px;
+              "
+            >
+              <div class="text" style="padding: 0 30px; text-align: left">
+                <h1>
+                  <span style="font-weight: bold">Impulsa</span> tu <br />
+                  Presencia Online <br />
+                  con Experticia Freelance
+                </h1>
+                <p><a href="#" class="btn btn-primary">Contáctame</a></p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </tr>
+      <!-- End Seccion  Hero -->
+
+      <!-- Star Seccion  Hi name -->
+      <table
+        align="center"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="100%"
+      >
+        <tr>
+          <td class="bg_white email-section">
+            <div style="text-align: left; padding: 0 30px">
+                
+              <h2>¡Hola! Soy Gustavo </h2>
+              <p>
+                Bienvenido a mi rincón digital, donde la creatividad y la
+                tecnología se encuentran para impulsar tu presencia online. Soy
+                [Tu Nombre], un freelancer apasionado, listo para llevar tus
+                proyectos al siguiente nivel.
+              </p>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- End Seccion  Hi name -->
+
+      <!-- Star Seccion  Card -->
+      <table
+        align="center"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="100%"
+      >
+
+      <div
+      class="heading-section heading-section-white"
+      style="text-align: center; padding: 0 30px"
+    >
+      <span class="subheading">Creatividad y Profesionalismo</span>
+      <h2>¿Por Qué Elegirme?</h2>
+      <p>
+        Con 5 años de experiencia en la industria, he trabajado con una variedad de clientes, desde startups hasta empresas consolidadas. Mi historial habla por sí mismo.
+      </p>
+    </div>
+        <tr class="bg_white email-section">
+          <td valign="top" width="50%" style="padding-top: 20px">
+            <table cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td style="padding: 12px">
+                  <div class="card">
+                    <h3>Email Marketing</h3>
+                    <p style="padding-bottom: 12px">
+                      Aprovecha mi experiencia en email marketing para crear
+                      campañas impactantes y personalizadas.
+                    </p>
+                    <p><a href="#" class="btn btn-primary">Ver más</a></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-services" style="text-align: left"></td>
+              </tr>
+            </table>
+          </td>
+          <td valign="top" width="50%" style="padding-top: 20px">
+            <table
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              width="100%"
+            >
+              <tr>
+                <td style="padding: 12px">
+                  <div class="card">
+                    <h3>Landing Page</h3>
+                    <p style="padding-bottom: 12px">
+                      Diseñaré landing pages que no solo atraigan la atención,
+                      sino que conviertan visitantes en clientes.
+                    </p>
+                    <p><a href="#" class="btn btn-primary">Ver más</a></p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- End Seccion  Card -->
+
+      <!-- Star Seccion Ou Services -->
+
+      <table
+        align="center"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="100%"
+      >
+        <tr>
+          <td class="bg_white email-section" style="padding-top: 30px">
+            <div
+              class="heading-section heading-section-white"
+              style="text-align: center; padding: 0 30px"
+            >
+              <span class="subheading">Enfoque Colaborativo</span>
+              <h2>Nuestros Servicios</h2>
+              <p>
+                Mi compromiso con la excelencia se refleja en cada proyecto que
+                emprendo. No solo entrego resultados, sino que también busco
+                superar expectativas en términos de calidad y creatividad.
+              </p>
+            </div>
+            <table
+              role="presentation"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              width="100%"
+            >
+              <tr>
+                <td valign="top" width="50%" style="padding-top: 20px">
+                  <table
+                    role="presentation"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    width="100%"
+                  >
+                    <tr>
+                      <td class="icon">
+                        <img
+                          src="images/web.png"
+                          alt=""
+                          style="
+                            width: 50px;
+                            max-width: 650px;
+                            height: auto;
+                            margin: auto;
+                            display: block;
+                          "
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-services">
+                        <h3>Diseño Web</h3>
+                        <p>
+                          Ofrezco servicios de diseño web personalizado,
+                          adaptados a tus necesidades y visión
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td valign="top" width="50%" style="padding-top: 20px">
+                  <table
+                    role="presentation"
+                    cellspacing="0"
+                    cellpadding="0"
+                    border="0"
+                    width="100%"
+                  >
+                    <tr>
+                      <td class="icon">
+                        <img
+                          src="images/development.png"
+                          alt=""
+                          style="
+                            width: 50px;
+                            max-width: 650px;
+                            height: auto;
+                            margin: auto;
+                            display: block;
+                          "
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-services">
+                        <h3>Development</h3>
+                        <p>
+                          Potencia tu sitio web con un desarrollo front-end
+                          excepcional. Utilizo las últimas tecnologías y las
+                          mejores prácticas.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- End Seccion Ou Services -->
+
+      <!-- Start Seccion Proyectos destacados -->
+
+      <table
+        align="center"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="100%"
+      >
+        <td class="bg_white" style="padding-top: 30px">
+          <div
+            class="heading-section"
+            style="text-align: center; padding: 0 30px"
+          >
+            <span class="subheading">Mis Trabajos Recientes</span>
+            <h2>Proyectos Destacados</h2>
+          </div>
+        </td>
+        <tr class="bg_white email-section">
+          <td style="padding-bottom: 30px">
+            <table
+              role="presentation"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              width="100%"
+            >
+              <td valign="middle" width="30%">
+                <img
+                  src="images/photo_offer.png"
+                  alt=""
+                  style="
+                    width: 100%;
+                    max-width: 650px;
+                    height: auto;
+                    margin: auto;
+                    display: block;
+                  "
+                />
+              </td>
+              <td valign="middle" width="50%">
+                <div
+                  class="text-blog"
+                  style="text-align: left; padding-left: 25px"
+                >
+                  <p class="meta">
+                    <span>Posted on Feb 03, 2024</span> <span>Food</span>
+                  </p>
+                  <h2>¡Vamos a Construir Juntos!</h2>
+                  <p>
+                    ¿Listo para dar vida a tus ideas? Estoy aquí para ayudar.
+                    Contáctame para discutir tus proyectos.
+                  </p>
+                  <p style="padding-top: 20px">
+                    <a href="#" class="btn btn-primary">Contácto</a>
+                  </p>
+                </div>
+              </td>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Fin Seccion Proyectos destacados -->
+
+
+    <!-- Start Seccion CLientes -->
+
+    <table
+    align="center"
+    cellspacing="0"
+    cellpadding="0"
+    border="0"
+    width="100%"
+  >
+      <tr>
+        <td class="bg_light email-section">
+            <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                <span class="subheading">Lo Que Dicen Mis Clientes</span>
+                <h2>Testimonios de Clientes Satisfechos</h2>
+              <p>Trabajaré contigo en cada etapa del proceso. Tu visión es la base de nuestro trabajo conjunto</p>
+            </div>
+            <table role="presentation" border="0" cellpadding="10" cellspacing="0" width="100%">
+                <tr>
+          <td valign="top" width="33.333%" style="padding-top: 20px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tr>
+                <td>
+                  <img src="images/person_1.jpg" alt="" style="width: 80px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
+                </td>
+              </tr>
+              <tr>
+                <td class="text-testimony" style="text-align: center;">
+                    <span class="position">Empresario</span>
+                    <h3 class="name">Ronald Tuff</h3>
+                     <p>"Fue una experiencia increíble"</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td valign="top" width="33.333%" style="padding-top: 20px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tr>
+                <td>
+                  <img src="images/person_2.jpg" alt="" style="width: 80px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
+                </td>
+              </tr>
+              <tr>
+                <td class="text-testimony" style="text-align: center;">
+                    <span class="position">Empresario</span>
+                    <h3 class="name">Willam Clarson</h3>
+                  <p>"Su atención al detalle y compromiso""</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td valign="top" width="33.333%" style="padding-top: 20px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+              <tr>
+                <td>
+                  <img src="images/person_3.jpg" alt="" style="width: 80px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
+                </td>
+              </tr>
+              <tr>
+                <td class="text-testimony" style="text-align: center;">
+                    <span class="position">Empresario</span>
+                    <h3 class="name">Frijol Ryan</h3>
+                  <p>"Realmente impulsó nuestras conversiones"</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+
+  <!-- End Seccion CLientes -->
+
+
+
+
+
+      <!-- Star Seccion Redes sociales -->
+
+      <table
+        align="center"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        width="100%"
+      >
+        <tr>
+          <td class="bg_white footer">
+            <table>
+              <tr style="text-align: left">
+                <td
+                  valign="middle"
+                  width="50%"
+                  style="padding-top: 20px; text-align: left"
+                >
+                  <h3 class="heading">Sígueme en las Redes Sociales</h3>
+                </td>
+                <td width="50%" style="padding-top: 20px; text-align: right">
+                  <ul class="social">
+                    <li>
+                      <img
+                        src="images/insta.png"
+                        alt=""
+                        style="
+                          width: 24px;
+                          max-width: 650px;
+                          height: auto;
+                          display: block;
+                        "
+                      />
+                    </li>
+                    <li>
+                      <img
+                        src="images/facebook.png"
+                        alt=""
+                        style="
+                          width: 24px;
+                          max-width: 650px;
+                          height: auto;
+                          display: block;
+                        "
+                      />
+                    </li>
+                    <li>
+                      <img
+                        src="images/twitter.png"
+                        alt=""
+                        style="
+                          width: 24px;
+                          max-width: 650px;
+                          height: auto;
+                          display: block;
+                        "
+                      />
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="bg_footer" style="text-align: center">
+            <p style="color: #ffffff">
+              Hecho con ❤️ &nbsp;de Gustavo Arancibia ©
+              <a href="https://github.com/garancibiacl" style="color: #ffffff"
+                >Portafolio Git</a
+              >
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Star Seccion Redes sociales -->
+    </div>
+  </body>
+</html>
